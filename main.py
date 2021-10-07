@@ -7,8 +7,14 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 
+from aiogram.types import ReplyKeyboardRemove, \
+    ReplyKeyboardMarkup, KeyboardButton, \
+    InlineKeyboardMarkup, InlineKeyboardButton
+
 bot = Bot(token=tg_bot_token)
 dp = Dispatcher(bot)
+
+
 
 em1 = '\N{nauseated face}'
 em2 = '\N{coffin}'
@@ -17,10 +23,16 @@ em4 = '\N{face with thermometer}'
 
 @dp.message_handler(commands=["start"])
 async def start_command(message: types.Message):
-    await message.answer("Привет. Это тестовый бот. Чтобы посмотреть, что он вывыодит напиши любые символы")
+    button_hi = KeyboardButton('Привет! 👋')
+    greet_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+    greet_kb.add(button_hi)
+    await message.answer("Привет. Это тестовый бот. Чтобы посмотреть, что он вывыодит напиши любые символы",reply_markup=greet_kb)
 
 @dp.message_handler()
 async def get_stats(message: types.Message):
+    keyboard_markup = types.InlineKeyboardMarkup()
+    press_btn = types.InlineKeyboardButton('Press ME!', callback_data= 'press')
+    keyboard_markup.row(press_btn)
     URL = 'https://www.worldometers.info/coronavirus/country/ukraine/'
     HEADERS = {
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
