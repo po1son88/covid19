@@ -17,7 +17,7 @@ em4 = '\N{face with thermometer}'
 
 @dp.message_handler(commands=["start"])
 async def start_command(message: types.Message):
-    await message.reply("Привет. Это тестовый бот. Чтобы посмотреть, что он вывыодит напиши любые символы")
+    await message.answer("Привет. Это тестовый бот. Чтобы посмотреть, что он вывыодит напиши любые символы")
 
 @dp.message_handler()
 async def get_stats(message: types.Message):
@@ -58,7 +58,7 @@ async def get_stats(message: types.Message):
             }
         )
     for content in contents:
-        await message.reply (
+        await message.answer (
             f'Статистика Covid19 по Украине'
             f'\n\n{em1} Всего заболевших: {content["cases"]}(+{content["cases1"]} за вчерашние сутки)' 
             f'\n{em2} Умерло: {content["deaths"]}(+{content["cases2"]} за вчерашние сутки)'
