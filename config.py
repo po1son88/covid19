@@ -1,1 +1,1 @@
-tg_bot_token = ""
+tg_bot_token = "432339526:AAEkBqryLi_sFr4rvDokQrOZBMd8MlkNN-g"

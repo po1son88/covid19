@@ -30,9 +30,7 @@ async def start_command(message: types.Message):
 
 @dp.message_handler()
 async def get_stats(message: types.Message):
-    keyboard_markup = types.InlineKeyboardMarkup()
-    press_btn = types.InlineKeyboardButton('Press ME!', callback_data= 'press')
-    keyboard_markup.row(press_btn)
+
     URL = 'https://www.worldometers.info/coronavirus/country/ukraine/'
     HEADERS = {
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
